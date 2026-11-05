@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <script defer src="assets/js/database.js"></script>
+  <script defer src="assets/js/software-database.js"></script>
   <script defer src="assets/js/app.js"></script>
 </head>
 <body>
@@ -37,14 +38,14 @@
   <div class="search-wrap"><span class="search-icon">⌕</span><input id="device-search" type="search" placeholder="Search brand or model — e.g. iPhone 13, Samsung A15..." autocomplete="off"><kbd>⌕</kbd></div>
   <div class="filter-row"><span id="result-count">Loading device index…</span><div class="filters"><button class="filter active" data-brand="all">All</button><button class="filter" data-brand="Apple">Apple</button><button class="filter" data-brand="Samsung">Samsung</button><button class="filter" data-brand="Vivo">Vivo</button><button class="filter" data-brand="Xiaomi">Xiaomi</button></div></div>
   <div class="device-grid" id="device-grid" aria-live="polite"></div>
-  <p class="database-note">This is the initial database framework. Model coverage, verified device images and service-specific prices will be added in controlled batches; unverified prices are never guessed.</p>
+  <p class="database-note">Device records are searchable across major brands. Retail and repair prices show “Contact for Price” until you provide your shop rates; no prices are invented.</p>
 </section>
 <section class="section solution-section" id="solutions">
   <div class="section-heading"><div><div class="eyebrow">WHAT WE ORGANIZE</div><h2>Solutions, clearly separated.</h2><p>Each category has its own directory so unrelated tools never get mixed together.</p></div><span class="section-index">02 / SOLUTIONS</span></div>
   <div class="solution-grid">
-    <article class="solution-card"><span class="card-number">01</span><div class="solution-icon">⌘</div><h3>PC & Windows</h3><p>Drivers, device utilities, diagnostics and computer-side technician tools.</p><a href="#downloads">Explore PC tools ↗</a></article>
-    <article class="solution-card"><span class="card-number">02</span><div class="solution-icon">▣</div><h3>Android solutions</h3><p>Android device utilities, firmware resources and supported service workflows.</p><a href="#downloads">Explore Android tools ↗</a></article>
-    <article class="solution-card"><span class="card-number">03</span><div class="solution-icon">◉</div><h3>iPhone solutions</h3><p>iTunes, 3uTools, iMazing and verified Apple-device resources.</p><a href="#downloads">Explore iPhone tools ↗</a></article>
+    <article class="solution-card"><span class="card-number">01</span><img class="solution-banner" src="assets/images/category-pc-laptop.svg" alt="PC laptop tools"><h3>PC & Windows</h3><p>Drivers, device utilities, diagnostics and computer-side technician tools.</p><a href="#downloads">Explore PC tools ↗</a></article>
+    <article class="solution-card"><span class="card-number">02</span><img class="solution-banner" src="assets/images/category-android.svg" alt="Android phone tools"><h3>Android solutions</h3><p>Android device utilities, firmware resources and supported service workflows.</p><a href="#downloads">Explore Android tools ↗</a></article>
+    <article class="solution-card"><span class="card-number">03</span><img class="solution-banner" src="assets/images/category-iphone.svg" alt="iPhone tools"><h3>iPhone solutions</h3><p>iTunes, 3uTools, iMazing and verified Apple-device resources.</p><a href="#downloads">Explore iPhone tools ↗</a></article>
   </div>
 </section>
 <section class="section downloads-section" id="downloads">
@@ -53,9 +54,9 @@
     <a class="download-card pc" href="downloads.html#pc"><span class="download-top">CATEGORY 01 <b>↗</b></span><span class="download-symbol">⌘</span><h3>PC Tools</h3><p>Windows utilities, drivers and technician software.</p><span class="download-bottom">OPEN COLLECTION <b>→</b></span></a>
     <a class="download-card android" href="downloads.html#android"><span class="download-top">CATEGORY 02 <b>↗</b></span><span class="download-symbol">▣</span><h3>Android Tools</h3><p>Android software, firmware and device utilities.</p><span class="download-bottom">OPEN COLLECTION <b>→</b></span></a>
     <a class="download-card iphone" href="downloads.html#iphone"><span class="download-top">CATEGORY 03 <b>↗</b></span><span class="download-symbol">◉</span><h3>iPhone Tools</h3><p>Apple device management and support utilities.</p><span class="download-bottom">OPEN COLLECTION <b>→</b></span></a>
-    <a class="download-card package" href="https://www.mediafire.com/file/yvxtqodemj9ymnk/Technex+Labs.rar/file" target="_blank" rel="noopener noreferrer"><span class="download-top">CATEGORY 04 <b>↗</b></span><span class="download-symbol">⬡</span><h3>Flash Forge Tech Solutions Package</h3><p>Your supplied MediaFire package, kept separate from the other tool libraries.</p><span class="download-bottom">OPEN MEDIAFIRE PACKAGE <b>→</b></span></a>
+    <a class="download-card package" href="https://www.mediafire.com/file/yvxtqodemj9ymnk/Technex+Labs.rar/file" target="_blank" rel="noopener noreferrer"><span class="download-top">CATEGORY 04 <b>↗</b></span><img class="package-logo" src="assets/images/flash-forge-logo.svg" alt="Flash Forge website logo"><h3>Flash Forge Tech Solutions Package</h3><p>Your supplied MediaFire package, kept separate from the other tool libraries.</p><span class="download-bottom">OPEN MEDIAFIRE PACKAGE <b>→</b></span></a>
   </div>
-  <p class="database-note">Only the supplied package link is connected at this stage. Other download entries will use verified official publisher links.</p>
+  <p class="database-note">PC, Android and iPhone libraries are connected to the shared software database. Open a category to browse its publisher links.</p>
 </section>
 <section class="section cyber-section" id="cyber"><div class="section-heading"><div><div class="eyebrow">SECURITY LEARNING</div><h2>Cyber security & ethical hacking</h2><p>Learning resources and defensive security tools, organized for safe lab practice.</p></div><span class="section-index">04 / SECURITY</span></div><div class="solution-grid"><article class="solution-card"><span class="card-number">01</span><div class="solution-icon">⌘</div><h3>Kali Linux</h3><p>Official security-focused Linux distribution for authorized labs and learning.</p><a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer">Official website ↗</a></article><article class="solution-card"><span class="card-number">02</span><div class="solution-icon">◎</div><h3>Wireshark</h3><p>Network protocol analysis for troubleshooting and defensive investigation.</p><a href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer">Official website ↗</a></article><article class="solution-card"><span class="card-number">03</span><div class="solution-icon">◇</div><h3>OWASP</h3><p>Web application security guidance, testing resources and learning materials.</p><a href="https://owasp.org/" target="_blank" rel="noopener noreferrer">Official website ↗</a></article></div></section>
 <section class="contact-band" id="contact"><div><div class="eyebrow">LET’S CONNECT</div><h2>Built for the people<br>who fix technology.</h2></div><div class="contact-actions"><a class="button dark-button" href="https://www.tiktok.com/@technexlab" target="_blank" rel="noopener noreferrer">TikTok profile ↗</a><span>More contact channels can be configured here.</span></div></section>
