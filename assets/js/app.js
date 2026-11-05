@@ -14,7 +14,7 @@
   const toolCards=matchedSoftware.map(s=>'<a class="device-card software-result" href="downloads.html#'+esc(s.category)+'"><span class="device-top"><span class="device-brand">SOFTWARE / '+esc(s.category.toUpperCase())+'</span><span class="device-year">↗</span></span><span class="tool-result-icon">⬡</span><h3>'+esc(s.name)+'</h3><small>'+esc(s.type)+' · Open publisher link in downloads ↗</small></a>').join("");
   grid.innerHTML=(deviceCards+toolCards)||'<p class="database-note">No matching device or software found in the current database.</p>';
  }
- function openDevice(id){const d=devices.find(x=>x.id===id);if(!d)return;document.getElementById("modal-brand").textContent=d.brand.toUpperCase()+" / "+d.year;document.getElementById("modal-title").textContent=d.model;document.getElementById("modal-description").textContent=d.description;document.getElementById("service-list").innerHTML='<div class="service-row"><span>Device retail price</span><span>'+esc(d.devicePrice||"Contact for Price")+'</span></div>'+d.services.map(s=>'<div class="service-row"><span>'+esc(s.name)+'</span><span>'+esc(s.price)+'</span></div>').join("");modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";}
+ function openDevice(id){const d=devices.find(x=>x.id===id);if(d)window.location.href="device.html?id="+encodeURIComponent(d.id);}
  function close(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow="";}
  grid.addEventListener("click",e=>{const card=e.target.closest("[data-id]");if(card)openDevice(card.dataset.id)});
  search.addEventListener("input",render);
