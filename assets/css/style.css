@@ -91,3 +91,34 @@ body{background:radial-gradient(ellipse at 12% 12%,#35204b66,transparent 32%),ra
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
 @media(max-width:650px){.hero-showcase{height:340px}.showcase-photo{height:285px;width:min(260px,76%)}.chip-top{right:0;top:28px}.chip-bottom{left:0;bottom:20px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+
+
+/* FLASH FORGE CATEGORY ARTWORK + SHARED SEARCH */
+.brand-mark-img{width:42px;height:42px;border-radius:13px;display:block;box-shadow:0 8px 24px #ad5ab744}
+.solution-banner{width:100%;height:118px;object-fit:cover;border-radius:12px;margin:2px 0 12px;border:1px solid #344264}
+.solution-card{overflow:hidden;background:linear-gradient(145deg,#141d35,#20162f);border-color:#35405d;color:#f3f5ff}
+.solution-card p{color:#b5c1d7}
+.solution-card>a{color:#ff9bc8}
+.package-logo{width:62px;height:62px;border-radius:16px;object-fit:contain;margin:20px 0 13px;box-shadow:0 8px 25px #0004}
+.device-brand{display:flex;align-items:center;gap:6px}
+.device-brand img{width:16px;height:16px;object-fit:contain;border-radius:4px;background:#fff}
+.device-thumb{width:100%;height:104px;border:1px solid #5c5a86;border-radius:12px;background-size:cover;background-position:center;margin:13px 0 10px;overflow:hidden}
+.device-thumb:after{display:none}
+.device-card{background:linear-gradient(145deg,#151d34,#21182f);border-color:#343e60;color:#f4f3ff}
+.device-card h3{color:#fff;font-size:15px}
+.device-card small{color:#b4bdd1}
+.device-card:hover{border-color:#d17fca;box-shadow:0 15px 38px #9d55b52b}
+.software-result{display:block;text-align:left}
+.software-result .tool-result-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;margin:14px 0;background:linear-gradient(135deg,#f078b7,#8672ed,#35d9d0);color:#fff;font-size:25px}
+.software-result small{line-height:1.5}
+.search-wrap{background:#111a2d;border-color:#34415e}
+.search-wrap input{background:transparent;color:#fff}
+.search-wrap input::placeholder{color:#91a0bc}
+.filter{background:#151d32;border-color:#34415e;color:#b8c4db}
+.filter.active,.filter:hover{background:#35224a;border-color:#bd79bd;color:#ffb0d4}
+.modal-panel{background:#111a2d;color:#f4f4ff;border:1px solid #465174}
+.modal-panel>p{color:#b9c4d8}
+.service-row{border-color:#35405a}
+footer{background:#0b1222;border-color:#263653}
+footer>span,footer>a:last-child{color:#9baac4}
+@media(max-width:650px){.solution-banner{height:100px}.device-thumb{height:85px}}
