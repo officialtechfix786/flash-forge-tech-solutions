@@ -23,4 +23,39 @@
 </div><p class="source-note">Apple Devices is Apple's current dedicated Windows device-management app. Apple's support page also provides iTunes information for supported use cases.</p></section>
 <section class="download-library"><div class="library-head"><div><div class="eyebrow">04 / YOUR PROVIDED PACKAGE</div><h2>Flash Forge resource package</h2><p>Your supplied MediaFire package is kept separate from verified publisher software.</p></div></div><a class="software-card" style="max-width:430px" href="https://www.mediafire.com/file/yvxtqodemj9ymnk/Technex+Labs.rar/file" target="_blank" rel="noopener noreferrer"><div class="software-top"><div class="software-logo"><span>FF</span></div><div><div class="software-title">Technex Labs Package</div><div class="software-type">USER-SUPPLIED LINK</div></div></div><p>Open the package you previously provided. Scan downloaded archives before extracting or running files.</p><span class="software-link" style="width:max-content">Open MediaFire ↗</span></a></section>
 </main><footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">FF</span><span>FLASH FORGE <b>TECH</b><small>SOLUTIONS</small></span></a><span>© 2026 Flash Forge Tech Solutions</span><a href="#">Back to top ↑</a></footer>
-<script>const q=document.getElementById('software-search');q.addEventListener('input',()=>{const term=q.value.trim().toLowerCase();document.querySelectorAll('.software-card[data-search]').forEach(card=>card.hidden=!card.dataset.search.includes(term)&&!card.innerText.toLowerCase().includes(term));document.querySelectorAll('.download-library').forEach(section=>{const cards=[...section.querySelectorAll('.software-card[data-search]')];if(cards.length)section.querySelector('.no-match')?.remove();if(cards.length&&!cards.some(c=>!c.hidden)){const p=document.createElement('p');p.className='no-match';p.textContent='No matching software in this category.';p.style.display='block';section.querySelector('.software-grid')?.after(p)}})});</script></body></html>
+<script defer src="assets/js/software-database.js"></script>
+<script>
+(function(){
+ const data=window.FLASH_FORGE_SOFTWARE||[];
+ const sections={pc:document.querySelector("#pc .software-grid"),android:document.querySelector("#android .software-grid"),iphone:document.querySelector("#iphone .software-grid")};
+ const counts={};
+ function render(){
+  Object.keys(sections).forEach(key=>{
+   const root=sections[key]; if(!root)return;
+   const items=data.filter(item=>item.category===key); counts[key]=items.length;
+   root.innerHTML=items.map(item=>{
+    const logo="https://www.google.com/s2/favicons?domain="+encodeURIComponent(item.domain)+"&sz=128";
+    const search=[item.name,item.type,item.platform,item.description,item.keywords].join(" ").toLowerCase();
+    return '<article class="software-card" data-search="'+search.replace(/"/g,"&quot;")+'"><div class="software-top"><div class="software-logo"><img src="'+logo+'" alt="'+item.name+' logo" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'"><span style="display:none">'+item.name.split(/\\s+/).map(w=>w[0]).slice(0,2).join("")+'</span></div><div><div class="software-title">'+item.name+'</div><div class="software-type">'+item.type+'</div></div></div><p>'+item.description+'</p><div class="software-meta"><small>'+item.platform+'</small><a class="software-link" href="'+item.url+'" target="_blank" rel="noopener noreferrer">Official source ↗</a></div></article>';
+   }).join("");
+   const label=document.querySelector("#"+key+" .library-count");if(label)label.textContent=items.length+" TOOLS IN DATABASE";
+  });
+  filter();
+ }
+ function filter(){
+  const term=(document.querySelector("#software-search")?.value||"").trim().toLowerCase();
+  Object.keys(sections).forEach(key=>{
+   const root=sections[key];if(!root)return;
+   const cards=[...root.querySelectorAll(".software-card")];let shown=0;
+   cards.forEach(card=>{const match=card.dataset.search.includes(term);card.hidden=!match;if(match)shown++;});
+   let note=root.parentElement.querySelector(".no-match");
+   if(!note){note=document.createElement("p");note.className="no-match";root.after(note);}
+   note.textContent="No matching software in this collection.";note.style.display=cards.length&&!shown?"block":"none";
+  });
+ }
+ document.addEventListener("DOMContentLoaded",function(){
+  render();
+  document.querySelector("#software-search")?.addEventListener("input",filter);
+ });
+})();
+</script></body></html>
