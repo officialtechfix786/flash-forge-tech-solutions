@@ -1,0 +1,9 @@
+/* Flash Forge Tech Solutions — starter dataset.
+   Expand with verified model records, licensed image URLs and confirmed PKR pricing. */
+window.FLASH_FORGE_DEVICES = [
+ {id:"apple-iphone-13",brand:"Apple",model:"iPhone 13",year:2021,category:"iPhone",description:"Apple iPhone 13. Service compatibility and prices must be verified before publication.",services:[{name:"Software diagnosis",price:"Contact for Price"},{name:"iOS restore support",price:"Contact for Price"},{name:"Data and device consultation",price:"Contact for Price"}]},
+ {id:"apple-iphone-14",brand:"Apple",model:"iPhone 14",year:2022,category:"iPhone",description:"Apple iPhone 14. Service compatibility and prices must be verified before publication.",services:[{name:"Software diagnosis",price:"Contact for Price"},{name:"iOS restore support",price:"Contact for Price"}]},
+ {id:"samsung-galaxy-a15",brand:"Samsung",model:"Galaxy A15",year:2023,category:"Android",description:"Samsung Galaxy A15. Confirm exact variant and region before servicing.",services:[{name:"Software diagnosis",price:"Contact for Price"},{name:"Firmware consultation",price:"Contact for Price"},{name:"Driver and connectivity support",price:"Contact for Price"}]},
+ {id:"vivo-y21",brand:"Vivo",model:"Y21",year:2021,category:"Android",description:"Vivo Y21. Confirm exact variant and region before servicing.",services:[{name:"Software diagnosis",price:"Contact for Price"},{name:"Firmware consultation",price:"Contact for Price"}]},
+ {id:"xiaomi-redmi-note-12",brand:"Xiaomi",model:"Redmi Note 12",year:2023,category:"Android",description:"Xiaomi Redmi Note 12. Confirm exact variant and region before servicing.",services:[{name:"Software diagnosis",price:"Contact for Price"},{name:"Firmware consultation",price:"Contact for Price"}]}
+];
