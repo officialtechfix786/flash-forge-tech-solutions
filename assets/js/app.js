@@ -7,7 +7,21 @@
  const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
  const brands=[...new Set(devices.map(d=>d.brand))].sort((a,b)=>a.localeCompare(b));
  brandStrip.innerHTML='<button class="brand-chip active" data-brand="all">All Brands</button>'+brands.map(b=>'<button class="brand-chip" data-brand="'+esc(b)+'">'+esc(b)+'</button>').join("");
- if(brandDirectory)brandDirectory.innerHTML=brands.map(b=>{const items=devices.filter(d=>d.brand===b);const n=items.length;const photo=items[0]?.image||"assets/images/category-android.svg";return '<button class="brand-tile" data-brand="'+esc(b)+'"><img class="brand-tile-photo" src="'+esc(photo)+'" alt="'+esc(b)+' phone" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=\'assets/images/category-android.svg\'"><span><b>'+esc(b)+'</b><small>'+n+' models listed</small></span><i>↗</i></button>'}).join("");
+ let showAllBrands=false;
+ function renderBrands(){
+  if(!brandDirectory)return;
+  const visible=showAllBrands?brands:brands.slice(0,10);
+  brandDirectory.innerHTML=visible.map(b=>{
+   const items=devices.filter(d=>d.brand===b),n=items.length,photo=items[0]?.image||"assets/images/category-android.svg";
+   return '<button class="brand-tile" data-brand="'+esc(b)+'"><img class="brand-tile-photo" src="'+esc(photo)+'" alt="'+esc(b)+' phone" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=\'assets/images/category-android.svg\'"><span><b>'+esc(b)+'</b><small>'+n+' models listed</small></span><i>↗</i></button>';
+  }).join("");
+  const toggle=document.getElementById("view-all-brands");
+  if(toggle)toggle.textContent=showAllBrands?"Show Popular Brands ↑":"View All Brands ➜";
+ }
+ renderBrands();
+ const brandToggle=document.getElementById("view-all-brands");
+ if(brandToggle)brandToggle.addEventListener("click",()=>{showAllBrands=!showAllBrands;renderBrands();});
+
  function render(){
   const q=(search.value||"").trim().toLowerCase();
   const matchedDevices=devices.filter(d=>(activeBrand==="all"?(q.length>0):d.brand===activeBrand)&&[d.brand,d.model,String(d.year),d.category,Object.values(d.specs||{}).join(" ")].join(" ").toLowerCase().includes(q));
