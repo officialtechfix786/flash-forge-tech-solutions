@@ -227,3 +227,126 @@ footer{background:#080714;color:#bdb3d0;border-color:#342946}.modal-panel{backgr
 .library-option img{display:block!important;width:100%!important;height:190px!important;max-height:none!important;object-fit:cover!important;object-position:center!important;padding:0!important;margin:0!important;border-radius:14px!important;background:#151326!important}
 .tool-hero img{display:block!important;width:min(100%,760px)!important;height:210px!important;max-height:none!important;object-fit:cover!important;object-position:center 45%!important;padding:0!important;margin:22px 0 0!important;border-radius:18px!important;border:1px solid #5a426d!important;box-shadow:0 18px 55px #0008!important}
 @media(max-width:760px){.hero-showcase .showcase-photo{height:290px!important}.library-option img{height:165px!important}.tool-hero img{height:150px!important}}
+
+
+/* FLASH FORGE — jewel-neon visual redesign (Nov 2026)
+   Preserve the existing device photos and page structure; replace the blue-heavy palette. */
+:root{
+ --ink:#fff5fb;--muted:#cbb8d2;--blue:#ff70b8;--cyan:#7cf0cf;--violet:#bd79ff;
+ --line:#583653;--paper:#090611;--white:#171020;--shadow:0 28px 85px #0009;
+}
+html{background:#090611;color-scheme:dark}
+body{
+ color:#fff5fb;
+ background:
+  radial-gradient(ellipse at 8% 7%,#ff3c9b36,transparent 30%),
+  radial-gradient(ellipse at 88% 12%,#a04dff30,transparent 32%),
+  radial-gradient(ellipse at 55% 95%,#ff9b4a1d,transparent 36%),
+  linear-gradient(135deg,#090611 0%,#160b20 42%,#100b1b 72%,#090611 100%);
+ background-attachment:fixed;
+}
+.site-header{
+ background:linear-gradient(100deg,#100a19f5,#1b0e25f0 55%,#100d1bf5);
+ border-color:#59334f;
+ box-shadow:0 10px 38px #0008,0 1px #ff9ac622 inset;
+}
+.brand{color:#fff}
+.brand b{color:#ff8bc8}
+.brand small{color:#c3a8c9}
+.brand-logo{filter:drop-shadow(0 0 12px #ff67b966)}
+.nav-links{color:#ead9ef}
+.nav-links a:hover,.text-link:hover{color:#ff8ac8}
+.header-cta{
+ color:#ffd0e8;border-color:#b45c91;
+ background:linear-gradient(120deg,#38172f,#21152e);
+ box-shadow:0 0 22px #e65aa522,inset 0 1px #ffffff18;
+}
+.hero{
+ color:#fff;background:
+ radial-gradient(ellipse at 78% 40%,#bd4b9a48,transparent 39%),
+ radial-gradient(ellipse at 18% 88%,#8c3f9b35,transparent 35%),
+ radial-gradient(ellipse at 50% 0%,#e17a4b1d,transparent 45%),
+ linear-gradient(118deg,#120a1c 0%,#24102b 48%,#130d20 100%);
+}
+.eyebrow{color:#ffc0dc}
+.hero h1 span{
+ background:linear-gradient(95deg,#ff78b9 0%,#ffc17d 42%,#c38bff 72%,#7cf0cf 100%);
+ background-clip:text;color:transparent;
+}
+.hero-text,.section-heading p{color:#d1bfd7}
+.primary{
+ color:#fff;background:linear-gradient(110deg,#e94e9d,#a34ee0 55%,#e18b61);
+ box-shadow:0 12px 36px #d84e9c55,0 0 28px #b85de533;
+}
+.stats,.search-wrap,.device-card,.solution-card,.download-card,.modal-panel{
+ background:linear-gradient(145deg,#24152e,#171326 58%,#171b29);
+ border-color:#5a3a5d;color:#fff5fb;
+ box-shadow:inset 0 1px #ffffff12,0 18px 48px #0006;
+}
+.stats strong{color:#fff}
+.stats span,.section-index,.device-year,.device-card small{color:#c7b4d0}
+.search-wrap input{background:transparent;color:#fff}
+.search-wrap input::placeholder{color:#ad98b7}
+.brand-chip,.brand-tile{
+ background:linear-gradient(140deg,#29172f,#191729);
+ color:#f9eafa;border-color:#684064;
+ box-shadow:inset 0 1px #ffffff12,0 8px 24px #0005;
+}
+.brand-chip.active,.brand-chip:hover,.brand-tile:hover{
+ background:linear-gradient(120deg,#a83c82,#7440a1 60%,#8c514e);
+ border-color:#ff9bcf;color:white;
+ box-shadow:0 0 25px #e85ba955;
+}
+.brand-tile-mark{
+ background:linear-gradient(135deg,#e34e9a,#9b55d2 55%,#c77b55);
+ box-shadow:0 0 20px #e75ca866;
+}
+.device-card:hover,.solution-card:hover,.download-card:hover{
+ border-color:#ff8cc8;box-shadow:0 20px 48px #d34e9c35,0 0 24px #a84dd322;
+}
+.device-brand{color:#ffabd4}
+.device-image{background:radial-gradient(ellipse,#563052,#171326);border:1px solid #ffffff12}
+.device-image img{object-fit:contain!important}
+.solution-section,.downloads-section{background:linear-gradient(180deg,#100a19aa,#0d0a17cc)}
+.contact-band{
+ background:linear-gradient(110deg,#762b62,#8d3b78 38%,#7541a0 72%,#9b543e);
+ box-shadow:0 22px 70px #0008,0 0 35px #d64f9c33;
+}
+footer{background:#08050e;color:#d5c2db;border-color:#4b2b4b}
+.modal-panel p,.modal-footnote,.solution-card p,.download-card p{color:#d0bfd7}
+.brand-directory{grid-template-columns:repeat(auto-fit,minmax(155px,1fr))}
+.brand-tile{min-height:66px}
+.brand-tile b{font-size:13px}
+.brand-tile small{font-size:10px}
+.brand-logo{width:46px!important;height:46px!important;max-height:46px;flex-basis:46px}
+.hero-showcase .showcase-photo{
+ background:linear-gradient(135deg,#4a1f4b,#8d3b70 50%,#3e274e)!important;
+ border:1px solid #c06a9b!important;
+ box-shadow:0 28px 90px #000a,0 0 55px #e75da844!important;
+}
+.hero-showcase .showcase-photo img{
+ object-fit:contain!important;background:linear-gradient(145deg,#26142e,#100e1c);
+}
+.library-home{
+ background:
+ radial-gradient(ellipse at 82% 12%,#e15a9a30,transparent 36%),
+ radial-gradient(ellipse at 12% 85%,#9a54c52b,transparent 35%),
+ linear-gradient(130deg,#100a1a,#211128 55%,#100b1a)!important;
+}
+.library-option{
+ background:linear-gradient(145deg,#2b1834,#171326 62%,#1a1929)!important;
+ border-color:#654064!important;
+}
+.library-option img{background:linear-gradient(135deg,#452345,#171326)!important}
+.package-link{background:linear-gradient(110deg,#4a1c43,#38204f,#4a2a36)!important;border-color:#8c4f79!important}
+.tool-hero img{background:linear-gradient(135deg,#462247,#191426)!important}
+@keyframes jewelPulse{
+ 0%,100%{box-shadow:0 0 18px #f05da733,0 0 45px #a64ed322}
+ 50%{box-shadow:0 0 28px #f05da766,0 0 70px #a64ed344}
+}
+.brand-tile,.library-option,.download-card,.solution-card{animation:jewelPulse 7s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.brand-tile,.library-option,.download-card,.solution-card{animation:none}}
+@media(max-width:760px){
+ .brand-directory{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .brand-logo{width:42px!important;height:42px!important;flex-basis:42px}
+}
