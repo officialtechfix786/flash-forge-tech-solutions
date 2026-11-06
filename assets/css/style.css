@@ -350,3 +350,17 @@ footer{background:#08050e;color:#d5c2db;border-color:#4b2b4b}
  .brand-directory{grid-template-columns:repeat(2,minmax(0,1fr))}
  .brand-logo{width:42px!important;height:42px!important;flex-basis:42px}
 }
+
+
+/* Performance pass: avoid expensive perpetual shadow animation and fixed backgrounds on phones */
+@media(max-width:900px){
+ body{background-attachment:scroll}
+ .brand-tile,.library-option,.download-card,.solution-card{animation:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+.device-image img,.solution-banner,.library-option img,.showcase-photo img{
+ display:block;max-width:100%;height:auto;
+}
+.device-image img{width:100%;height:100%;object-fit:contain!important}
