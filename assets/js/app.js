@@ -1,11 +1,13 @@
 (() => {
  const devices=Array.from(new Map((window.FLASH_FORGE_DEVICES||[]).map(d=>[d.id,d])).values()).sort((a,b)=>a.brand.localeCompare(b.brand)||b.year-a.year||a.model.localeCompare(b.model));
  const software=Array.from(new Map((window.FLASH_FORGE_SOFTWARE||[]).map(x=>[x.id,x])).values());
+ const brandDirectory=document.getElementById("brand-directory");
  const grid=document.getElementById("device-grid"),search=document.getElementById("device-search"),count=document.getElementById("result-count"),modal=document.getElementById("device-modal"),brandStrip=document.getElementById("brand-strip");
  let activeBrand="all";
  const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
  const brands=[...new Set(devices.map(d=>d.brand))].sort((a,b)=>a.localeCompare(b));
  brandStrip.innerHTML='<button class="brand-chip active" data-brand="all">All Brands</button>'+brands.map(b=>'<button class="brand-chip" data-brand="'+esc(b)+'">'+esc(b)+'</button>').join("");
+ if(brandDirectory)brandDirectory.innerHTML=brands.map(b=>{const n=devices.filter(d=>d.brand===b).length;return '<button class="brand-tile" data-brand="'+esc(b)+'"><span class="brand-tile-mark">'+esc(b.slice(0,2).toUpperCase())+'</span><span><b>'+esc(b)+'</b><small>'+n+' models listed</small></span><i>↗</i></button>'}).join("");
  function render(){
   const q=(search.value||"").trim().toLowerCase();
   const matchedDevices=devices.filter(d=>(activeBrand==="all"||d.brand===activeBrand)&&[d.brand,d.model,String(d.year),d.category,Object.values(d.specs||{}).join(" ")].join(" ").toLowerCase().includes(q));
@@ -19,7 +21,9 @@
  function close(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow="";}
  grid.addEventListener("click",e=>{const card=e.target.closest("[data-id]");if(card)openDevice(card.dataset.id)});
  search.addEventListener("input",render);
- brandStrip.addEventListener("click",e=>{const b=e.target.closest("[data-brand]");if(!b)return;brandStrip.querySelector(".active")?.classList.remove("active");b.classList.add("active");activeBrand=b.dataset.brand;render()});
+ function selectBrand(b){if(!b)return;activeBrand=b.dataset.brand;brandStrip.querySelector(".active")?.classList.remove("active");brandStrip.querySelector('[data-brand="'+CSS.escape(activeBrand)+'"]')?.classList.add("active");render();document.getElementById("devices")?.scrollIntoView({behavior:"smooth"});}
+ brandStrip.addEventListener("click",e=>selectBrand(e.target.closest("[data-brand]")));
+ if(brandDirectory)brandDirectory.addEventListener("click",e=>selectBrand(e.target.closest("[data-brand]")));
  modal.addEventListener("click",e=>{if(e.target.matches("[data-close]"))close()});document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
  const menu=document.querySelector(".menu-toggle"),nav=document.querySelector(".nav-links");if(menu&&nav)menu.addEventListener("click",()=>{const shown=nav.classList.toggle("show");menu.setAttribute("aria-expanded",String(shown))});
  const year=document.getElementById("year");if(year)year.textContent=new Date().getFullYear();render();
